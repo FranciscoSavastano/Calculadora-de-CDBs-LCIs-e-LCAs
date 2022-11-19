@@ -4,8 +4,8 @@ from tkinter import *
 root = Tk()
 
 
-class app():
-    def __init__(self):
+class app(): 
+    def __init__(self): #inicializa a interface
         self.root = root
         self.v = DoubleVar()
         self.window()
@@ -13,7 +13,7 @@ class app():
         self.botoes()
         root.mainloop()
 
-    def calcula(self):
+    def calcula(self): #recebe os valores das caixas de textos, e os prepara para calculo
         try:
             float(entryCap.get())
             cap = float(entryCap.get())
@@ -52,13 +52,13 @@ class app():
 
         #import CDI
 
-    def window(self):
+    def window(self): #cria a janela principal
         self.root.title('CDI')
         self.root.configure(background='#ffffff')
         self.root.geometry("500x730")
         self.root.resizable(False, False)
 
-    def subwindow(self):
+    def subwindow(self): #cria as subjanelas para os widgets, e os insere
         self.frame_1 = Frame()
         self.frame_1 = Label(
             bg='#cac3ba', bd=2, highlightbackground='#000000', highlightthickness=1)
@@ -97,7 +97,7 @@ class app():
             text='% CDI', bg='#faebd7', font=('verdana', 12))
         self.textentr4.place(relx=0.466, rely=0.376, relwidth=0.11)
 
-    def botoes(self):
+    def botoes(self): #realiza a criação dos botões.
         global entryCap, entryTaxSel, entryTaxCDI, entryRent, entryMonths, respostacap, respostacdi, respostarent, respostasel
         entryCap = Entry(self.frame_2)
         entryCap.place(relx=0.36, rely=0.034, relwidth=0.3)
@@ -131,7 +131,7 @@ class app():
             'verdana', 12,), command=self.calcula)
         calc.config(fg='red')
         calc.place(relx=0.37, rely=0.86)
-
+    #cria a janela de resultado apos realizar as contas.
     def ResWin(self, capital, selicpct, cdipct, cdimen, cdidia, txy, txm, alIR, taxacdi, rentpct, impostcdi, impostrent, mes, montanteapl, montpoupanca, submontante, impostoapl, rendmes, aplsub, poupancadv, poupmen, aplicadv, impostdv, aplpoup):
         win = Toplevel()
         win.geometry('800x580')
